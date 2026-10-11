@@ -5,7 +5,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.*;
 import org.openqa.selenium.Keys;
-import qa.guru.data.CalcTabRoles;
+import qa.guru.data.CalculatorTabRoles;
 import qa.guru.helpers.TableUiHelper;
 
 import java.util.Map;
@@ -40,12 +40,12 @@ public class AlphaCalculatorTests {
         // Находим все табы и проверяем, что среди них есть наши 4 штуки (остальные игнорируются)
         $$("[role='tab']")
                 .shouldHave(
-                        CollectionCondition.containExactTextsCaseSensitive(CalcTabRoles.getAllTabText()));
+                        CollectionCondition.containExactTextsCaseSensitive(CalculatorTabRoles.getAllTabText()));
     }
 
     @ParameterizedTest(name = "Проверка вкладок калькулятора | {0}")
-    @EnumSource(CalcTabRoles.class)
-    void shouldSuccessfullySwitchCalculatorTabs(CalcTabRoles tab) {
+    @EnumSource(CalculatorTabRoles.class)
+    void shouldSuccessfullySwitchCalculatorTabs(CalculatorTabRoles tab) {
         // Откроем главную страницу и раскрываем
         open("");
         WebDriverRunner.getWebDriver().manage().window().maximize();

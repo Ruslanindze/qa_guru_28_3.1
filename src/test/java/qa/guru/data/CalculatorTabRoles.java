@@ -1,11 +1,10 @@
 package qa.guru.data;
 
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
 
-public enum CalcTabRoles {
+public enum CalculatorTabRoles {
     DEPOSIT("Вклад", "#calculator",
             List.of("Подробные условия", "Открыть вклад")),
     SCORE("Счёт", "[data-test-id='PremiumSavingsAccountCalculator']",
@@ -21,7 +20,7 @@ public enum CalcTabRoles {
     private final List<String> expectedButtonsText;
 
     // Конструктор
-    CalcTabRoles(String tabText, String ccsButtonArea, List<String> buttonsText) {
+    CalculatorTabRoles(String tabText, String ccsButtonArea, List<String> buttonsText) {
         this.tabText = tabText;
         this.buttonArea = ccsButtonArea;
         this.expectedButtonsText = buttonsText;
@@ -42,7 +41,7 @@ public enum CalcTabRoles {
 
     // Возвращаем списком все вкладки
     public static List<String> getAllTabText() {
-        return Stream.of(values()).map(CalcTabRoles::getTabText).toList();
+        return Stream.of(values()).map(CalculatorTabRoles::getTabText).toList();
     }
 
     // Переопределяем toString() для JUnit 5
